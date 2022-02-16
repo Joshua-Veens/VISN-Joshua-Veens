@@ -26,7 +26,6 @@ grass = (9,95,8)
 colors = []
 
 def getHUE(array, colors):
-    tmpColors = []
     for y in range(array.shape[0]):
         for x in range(array.shape[1]):
             colors.append(array[y, x, 0]*360)
@@ -38,7 +37,7 @@ plt.plot(imgplot = plt.imshow(changeColor(imageArray.copy(), brick, 170, 25)))
 plt.figure(2)
 plt.plot(imgplot = plt.imshow(changeColor(imageArray.copy(), grass, 80, 25)))
 plt.figure(3)
-plt.hist((getHUE(toHSV(imageArray.copy()),colors)))
+plt.hist((getHUE(toHSV(imageArray.copy()),colors)), 64)
 plt.figure(4)
-plt.hist(getHUE(toHSV(changeColor(imageArray.copy(), brick, 170, 25)),colors))
+plt.hist(getHUE(toHSV(changeColor(imageArray.copy(), brick, 170, 25)),colors), 64)
 plt.show()
