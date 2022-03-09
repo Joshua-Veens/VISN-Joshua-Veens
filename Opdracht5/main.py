@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
 from sklearn import datasets
-from sklearn.datasets import make_classification
 from sklearn.metrics import ConfusionMatrixDisplay
-from sklearn.model_selection import train_test_split
 from sklearn import svm
 import random
 
@@ -36,7 +34,6 @@ clf.fit(X,y)
 
 print(clf.predict(testData[-4:-3]))
 plt.imshow(testImages[-4], cmap=plt.cm.gray_r, interpolation='nearest')
-predict = clf.predict(X)
-ConfusionMatrixDisplay.from_predictions(y, predict)
+ConfusionMatrixDisplay.from_predictions(testTarget, clf.predict(testData))
 
 plt.show()
